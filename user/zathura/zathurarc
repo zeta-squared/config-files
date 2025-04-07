@@ -1,0 +1,7 @@
+set synctex true
+set synctex-editor-command "vim --remote-silent +%{line} %{input}"
+map <Left> navigate previous 
+map <Right> navigate next
+set window-width 1280
+set window-height 1400
+set highlight-transparency 0.10

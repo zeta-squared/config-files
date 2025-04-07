@@ -1,0 +1,11 @@
+[Desktop Entry]
+DefaultProfile=Layan - Yakuake.profile
+
+[Dialogs]
+FirstRun=false
+
+[Window]
+DynamicTabTitles=true
+Height=100
+Position=50
+Width=70

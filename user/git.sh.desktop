@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[en_AU]=
+Comment=
+Exec=bash /home/zeaiter/.config/old-autostart-scripts/git.sh
+GenericName[en_AU]=
+GenericName=
+Icon=dialog-scripts
+MimeType=
+Name[en_AU]=git.sh
+Name=git.sh
+Path=
+StartupNotify=true
+Terminal=true
+TerminalOptions=\s--noclose
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=none
+X-KDE-AutostartScript=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=
