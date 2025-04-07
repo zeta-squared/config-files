@@ -45,7 +45,7 @@ install.
 Download the prebuilt tarball from the [GitHub releases](https://github.com/junegunn/fzf/releases). Once
 extracted place the binary in `/usr/local/bin/`.
 
-### Node and npm
+### Node and npm/pnpm
 
 Follow the instructions on the [Node webpage](https://nodejs.org/en/download).
 
