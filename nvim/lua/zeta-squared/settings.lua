@@ -1,4 +1,4 @@
-vim.g.python3_host_prog = '/home/zeaiter/.local/share/nvim/nvim_venv/bin/python'
+vim.g.python3_host_prog = os.getenv('HOME') .. '/.local/share/nvim/nvim_venv/bin/python'
 vim.g.mapleader = ' '
 
 vim.opt.guicursor = ''
