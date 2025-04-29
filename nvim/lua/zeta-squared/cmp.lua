@@ -79,7 +79,7 @@ require('nvim-ts-autotag').setup({})
 --vim.keymap.set('i', '<Tab>', '<Plug>(Tabout)')
 --vim.keymap.set('i', '<C-f>', '<Plug>(TaboutMulti)')
 --vim.keymap.set('i', '<C-d>', '<Plug>(TaboutBackMulti)')
-vim.g.UltiSnipsSnippetDirectories = {'/home/zeaiter/.local/share/nvim/UltiSnips'}
+vim.g.UltiSnipsSnippetDirectories = {os.getenv("HOME") .. '/.local/share/nvim/UltiSnips'}
 vim.g.UltiSnipsEditSplit = 'vertical'
 vim.g.UltiSnipsExpandTrigger = '<Tab>'
 vim.g.UltiSnipsJumpForwardTrigger = '<Tab>'
