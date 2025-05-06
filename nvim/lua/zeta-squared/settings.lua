@@ -28,4 +28,9 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- From V0.11 diagnostics are opt in. We opt in here.
-vim.diagnostic.config({ virtual_text = true })
+vim.diagnostic.config({
+    virtual_text = true,
+    float = {
+        border = 'rounded',
+    },
+})
