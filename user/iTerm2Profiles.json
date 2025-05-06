@@ -10,12 +10,12 @@
     "Alpha Component" : 1,
     "Green Component" : 0.34901960784313724
   },
-  "Ansi 0 Color" : {
-    "Red Component" : 0.078431375324726105,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.11764705926179886,
+  "Ansi 12 Color (Light)" : {
+    "Red Component" : 0.11372549019607843,
+    "Color Space" : "P3",
+    "Blue Component" : 0.95294117647058818,
     "Alpha Component" : 1,
-    "Green Component" : 0.098039217293262482
+    "Green Component" : 0.59999999999999998
   },
   "Cursor Text Color" : {
     "Red Component" : 1,
@@ -85,7 +85,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.2627450980392157
   },
-  "Transparency" : 0.29999999999999999,
+  "Transparency" : 0.3000000000000001,
   "Use Bright Bold" : true,
   "Horizontal Spacing" : 1,
   "Ansi 13 Color (Light)" : {
@@ -117,6 +117,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0
   },
+  "Unicode Version" : 9,
   "Use Cursor Guide (Light)" : false,
   "Option Key Sends" : 2,
   "Idle Code" : 0,
@@ -305,7 +306,7 @@
   },
   "Faint Text Alpha (Dark)" : 0.5,
   "Blur Radius" : 0.10000000000000001,
-  "Rows" : 55,
+  "Rows" : 80,
   "Background Color (Light)" : {
     "Red Component" : 0.13725490196078433,
     "Color Space" : "P3",
@@ -365,7 +366,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.52941176470588236
   },
-  "Normal Font" : "SourceCodePro-MediumIt 16",
+  "Normal Font" : "SauceCodeProNF-MediumItalic 16",
   "Use Selected Text Color (Dark)" : false,
   "Has Hotkey" : true,
   "Foreground Color" : {
@@ -695,6 +696,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.62745098039215685
   },
+  "ASCII Ligatures" : false,
   "Ansi 1 Color" : {
     "Red Component" : 0.7074432373046875,
     "Color Space" : "sRGB",
@@ -711,14 +713,14 @@
     "Alpha Component" : 1,
     "Green Component" : 0
   },
-  "Non-ASCII Anti Aliased" : true,
-  "Ansi 12 Color (Light)" : {
-    "Red Component" : 0.11372549019607843,
-    "Color Space" : "P3",
-    "Blue Component" : 0.95294117647058818,
+  "Ansi 0 Color" : {
+    "Red Component" : 0.078431375324726105,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.11764705926179886,
     "Alpha Component" : 1,
-    "Green Component" : 0.59999999999999998
+    "Green Component" : 0.098039217293262482
   },
+  "Non-ASCII Anti Aliased" : true,
   "Foreground Color (Dark)" : {
     "Red Component" : 1,
     "Color Space" : "P3",
@@ -737,12 +739,12 @@
     "Alpha Component" : 1,
     "Green Component" : 0.34901960784313724
   },
-  "Ansi 0 Color" : {
-    "Red Component" : 0.078431375324726105,
-    "Color Space" : "sRGB",
-    "Blue Component" : 0.11764705926179886,
+  "Ansi 12 Color (Light)" : {
+    "Red Component" : 0.11372549019607843,
+    "Color Space" : "P3",
+    "Blue Component" : 0.95294117647058818,
     "Alpha Component" : 1,
-    "Green Component" : 0.098039217293262482
+    "Green Component" : 0.59999999999999998
   },
   "Cursor Text Color" : {
     "Red Component" : 1,
@@ -797,6 +799,7 @@
     "Green Component" : 0.62745098039215685
   },
   "HotKey Characters" : "",
+  "Only The Default BG Color Uses Transparency" : false,
   "Scrollback Lines" : 1000,
   "Badge Color (Dark)" : {
     "Red Component" : 0.92929404973983765,
@@ -812,7 +815,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.2627450980392157
   },
-  "Transparency" : 0.29999999999999999,
+  "Transparency" : 0.3000000000000001,
   "Bound Hosts" : [
 
   ],
@@ -1035,7 +1038,7 @@
   },
   "Faint Text Alpha (Dark)" : 0.5,
   "Blur Radius" : 0.10000000000000001,
-  "Rows" : 57,
+  "Rows" : 80,
   "Background Color (Light)" : {
     "Red Component" : 0.13725490196078433,
     "Color Space" : "P3",
@@ -1095,7 +1098,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.52941176470588236
   },
-  "Normal Font" : "SourceCodePro-It 18 {\"featureSettings\":[{\"CTFeatureSelectorIdentifier\":10,\"CTFeatureTypeIdentifier\":35},{\"CTFeatureSelectorIdentifier\":4,\"CTFeatureTypeIdentifier\":35},{\"CTFeatureSelectorIdentifier\":2,\"CTFeatureTypeIdentifier\":35}]}",
+  "Normal Font" : "SauceCodeProNF-Italic 17.5",
   "Use Selected Text Color (Dark)" : false,
   "Has Hotkey" : false,
   "Foreground Color" : {
@@ -1442,14 +1445,14 @@
     "Alpha Component" : 1,
     "Green Component" : 0
   },
-  "Non-ASCII Anti Aliased" : true,
-  "Ansi 12 Color (Light)" : {
-    "Red Component" : 0.11372549019607843,
-    "Color Space" : "P3",
-    "Blue Component" : 0.95294117647058818,
+  "Ansi 0 Color" : {
+    "Red Component" : 0.078431375324726105,
+    "Color Space" : "sRGB",
+    "Blue Component" : 0.11764705926179886,
     "Alpha Component" : 1,
-    "Green Component" : 0.59999999999999998
+    "Green Component" : 0.098039217293262482
   },
+  "Non-ASCII Anti Aliased" : true,
   "Foreground Color (Dark)" : {
     "Red Component" : 1,
     "Color Space" : "P3",
