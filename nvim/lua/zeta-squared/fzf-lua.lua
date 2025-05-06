@@ -7,6 +7,11 @@ fzflua.setup({
 	keymap = {
 		builtin = {
 			true,
+			-- ["<C-k>"] = "preview-page-up",
+			-- ["<C-j>"] = "preview-page-down",
+			-- ["<C-i>"] = "preview-up",
+			-- ["<C-u>"] = "preview-down",
+            -- ["<C-[>"] = "hide",
 			["<C-k>"] = "preview-page-up",
 			["<C-j>"] = "preview-page-down",
 			["<C-i>"] = "preview-up",
@@ -15,11 +20,9 @@ fzflua.setup({
 		},
 	},
 	files = {
-		true,
 		rg_opts = [[--color=never --files --hidden --follow -g "!.git" -g "!node_modules" -g "!venv" -g "!__pycache__"]],
 	},
 	grep = {
-		true,
 		rg_opts = [[-g "!.git" -g "!node_modules" -g "!venv" -g "!__pycache__" --column --line-number --no-heading --color=always --smart-case --max-columns=4096 -e]],
 	},
 })

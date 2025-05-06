@@ -12,6 +12,7 @@ Plug('tpope/vim-fugitive')
 Plug('haya14busa/is.vim')
 Plug('SirVer/ultisnips')
 Plug('ibhagwan/fzf-lua', {['branch'] = 'main'})
+Plug('echasnovski/mini.icons') -- dependency for fzf-lua
 Plug('williamboman/mason.nvim')
 Plug('williamboman/mason-lspconfig.nvim')
 Plug('neovim/nvim-lspconfig')

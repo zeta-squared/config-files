@@ -19,7 +19,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.signcolumn = 'auto'
+vim.opt.signcolumn = 'no'
 
 vim.opt.clipboard = 'unnamed'
 vim.opt.mouse = 'a'
@@ -28,4 +28,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- From V0.11 diagnostics are opt in. We opt in here.
-vim.diagnostic.config({ virtual_lines = true })
+vim.diagnostic.config({ virtual_text = true })

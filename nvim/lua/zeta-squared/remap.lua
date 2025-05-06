@@ -7,8 +7,8 @@ vim.keymap.set({'n', 'v'}, '<leader>wv', ':vs<CR>')
 vim.keymap.set({'n', 'v'}, '<leader>wt', ':$tabnew<CR>')
 
 -- Remap moving between lines to not ignore wrapped lines.
-vim.keymap.set({'n', 'v'}, 'j', 'gj')
-vim.keymap.set({'n', 'v'}, 'k', 'gk')
+-- vim.keymap.set({'n', 'v'}, 'j', 'gj')
+-- vim.keymap.set({'n', 'v'}, 'k', 'gk')
 
 -- Keymaps for yanking to, and pasting from, clipboard.
 vim.keymap.set({'n', 'v'}, '<leader>y', '\"+y')
@@ -16,10 +16,10 @@ vim.keymap.set({'n', 'v'}, '<leader>Y', '\"+Y')
 vim.keymap.set({'n', 'v'}, '<leader>p', '\"+p')
 
 -- Keymaps for scrolling or jumping through file.
-vim.keymap.set({'n', 'v'}, '<C-j>', '<C-d>')
-vim.keymap.set({'n', 'v'}, '<C-k>', '<C-u>')
-vim.keymap.set({'n', 'v'}, '<C-u>', '<C-e>')
-vim.keymap.set({'n', 'v'}, '<C-i>', '<C-y>')
+-- vim.keymap.set({'n', 'v'}, '<C-j>', '<C-d>')
+-- vim.keymap.set({'n', 'v'}, '<C-k>', '<C-u>')
+-- vim.keymap.set({'n', 'v'}, '<C-u>', '<C-e>')
+-- vim.keymap.set({'n', 'v'}, '<C-i>', '<C-y>')
 vim.keymap.set('i', '<A-f>', '<C-Right>')
 vim.keymap.set('i', '<A-b>', '<C-Left>')
 vim.keymap.set('i', '<C-a>', '<Home>')
@@ -38,7 +38,7 @@ vim.keymap.set('n', '<A-o>', 'O<Esc>')
 
 -- Keymap to have <C-[> behave in terminal mode as it does in insert
 -- mode.
-vim.keymap.set('t', '<C-[>', '<C-\\><C-n>')
+vim.keymap.set('t', '<A-[>', '<C-\\><C-n>')
 
 -- Keymap to jump to previous file.
 vim.keymap.set('n', '<C-q>', '<C-^>')

@@ -2,20 +2,22 @@ local fterm = require('FTerm')
 
 local term1 = fterm:new({
     cmd = 'bash',
+    border = 'rounded',
     dimensions = {
-        height = 0.98,
-        width = 0.98,
-        x = 0.5,
+        height = 0.96,
+        width = 0.5,
+        x = 1.0,
         y = 0.2,
     },
 })
 
 local term2 = fterm:new({
     cmd = 'bash',
+    border = 'rounded',
     dimensions = {
-        height = 0.98,
-        width = 0.98,
-        x = 0.5,
+        height = 0.96,
+        width = 0.5,
+        x = 1.0,
         y = 0.2,
     },
 })
@@ -23,9 +25,10 @@ local term2 = fterm:new({
 local term3 = fterm:new({
     ft = 'fterm_lazygit',
     cmd = 'lazygit',
+    border = 'rounded',
     dimensions = {
-        height = 0.98,
-        width = 0.98,
+        height = 0.9,
+        width = 0.9,
         x = 0.5,
         y = 0.2,
     },
