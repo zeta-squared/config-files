@@ -30,6 +30,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('mason').setup({})
 
+require('mason-tool-installer').setup({
+    ensure_installed = {
+        'basedpyright',
+        'lua-language-server',
+        'texlab',
+        'typescript-language-server',
+        'yaml-language-server',
+        'debugpy',
+        'js-debug-adapter',
+    }
+})
+
 require('mason-lspconfig').setup({
     handlers = {
         function(server_name)
@@ -77,6 +89,14 @@ cmp.setup({
             border = 'rounded',
             winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
         }),
+    },
+    formatting = {
+        format = function(_, vim_item)
+            local icon, hl = require('mini.icons').get('lsp', vim_item.kind)
+            vim_item.kind = icon .. ' ' .. vim_item.kind
+            vim_item.kind_hl_group = hl
+            return vim_item
+        end,
     },
 })
 
