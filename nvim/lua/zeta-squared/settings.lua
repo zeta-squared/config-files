@@ -2,6 +2,7 @@ vim.g.python3_host_prog = os.getenv('HOME') .. '/.local/share/nvim/nvim_venv/bin
 vim.g.mapleader = ' '
 
 vim.opt.guicursor = ''
+vim.opt.winborder = 'rounded' -- all floating windows have rounded border
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -28,9 +29,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- From V0.11 diagnostics are opt in. We opt in here.
-vim.diagnostic.config({
-    virtual_text = true,
-    float = {
-        border = 'rounded',
-    },
-})
+vim.diagnostic.config({ virtual_text = true })

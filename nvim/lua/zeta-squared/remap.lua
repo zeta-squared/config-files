@@ -66,3 +66,11 @@ vim.keymap.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>');
 
 -- Keymaps for mac
 -- vim.keymap.set('i', '<C-[>', '<Esc><Esc>')
+
+-- Keymap to close quickfix list after selection
+vim.api.nvim_create_autocmd(
+    'FileType', {
+        pattern = {'qf'},
+        command = [[nnoremap <buffer> <CR> <CR>:cclose<CR>]]
+    }
+)

@@ -68,6 +68,16 @@ cmp.setup({
             vim.fn["UltiSnips#Anon"](args.body)
         end,
     },
+    window = {
+        completion = cmp.config.window.bordered({
+            border = 'rounded',
+            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+        }),
+        documentation = cmp.config.window.bordered({
+            border = 'rounded',
+            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None',
+        }),
+    },
 })
 
 --tabout.setup({
