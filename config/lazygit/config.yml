@@ -1,0 +1,5 @@
+keybinding:
+  universal:
+    return: <c-f>
+git:
+  autoForwardBranches: none
