@@ -154,5 +154,7 @@ echo \
 sudo apt-get update
 echo "Installing docker..."
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-echo "Configuring group to manage docker as non-root user visit https://docs.docker.com/engine/install/linux-postinstall/"
+echo "Configuring group to manage docker as non-root user..."
+sudo groupadd docker
+sudo usermod -aG docker ${USER}
 echo "Successfully installed docker."
