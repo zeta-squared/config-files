@@ -35,7 +35,6 @@ echo "Successfully installed ripgrep."
 
 echo "Downloading fzf..."
 curl -o ${DOTFILES_DIR}/fzf-0.62.0-linux_amd64.tar.gz -L https://github.com/junegunn/fzf/releases/download/v0.62.0/fzf-0.62.0-linux_amd64.tar.gz
-exit
 echo "Extrating tarball..."
 tar xzf ${DOTFILES_DIR}/fzf-0.62.0-linux_amd64.tar.gz -C ${DOTFILES_DIR}
 echo "Installing fzf..."
@@ -58,25 +57,6 @@ nvm current # Should print "v22.15.0".
 corepack enable pnpm
 pnpm -v
 echo "Successfully installed node with pnpm."
-
-echo "Setting up Docker's apt repository..."
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-echo "Installing docker..."
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-echo "Configuring group to manage docker as non-root user..."
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-echo "Successfully installed docker."
 
 echo "Installing zathura..."
 sudo apt install zathura
@@ -153,15 +133,25 @@ Pin-Priority: 1001
 Package: firefox
 Pin: version 1:1snap*
 Pin-Priority: -1
-' | tee /etc/apt/preferences.d/mozilla-firefox
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 sudo apt install firefox
-echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 echo "Successfully installed Firefox."
 
-echo "Downloading discord..."
-curl -o ${DOTFILES_DIR}/discord.deb -L https://discord.com/api/download?platform=linux&format=deb
-echo "Installing discord..."
-sudo apt install ${DOTFILES_DIR}/discord.deb
-echo "Cleaning up..."
-rm -f ${DOTFILES_DIR}/discord.deb
-echo "Successfully installed discord."
+echo "Setting up Docker's apt repository..."
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+echo "Installing docker..."
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+echo "Configuring group to manage docker as non-root user..."
+sudo usermod -aG docker $USER
+newgrp docker
+echo "Successfully installed docker."
