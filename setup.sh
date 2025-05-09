@@ -67,7 +67,7 @@ tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
 echo "Installing fzf..."
 sudo mv ${DOTFILES_DIR}/fzf /usr/local/bin/
 echo "Cleaning up..."
-rm -rf ${DOTFILES}/${FILE}*
+rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed fzf."
 
 echo "Downloading lazygit..."
