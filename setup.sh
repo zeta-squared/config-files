@@ -53,23 +53,25 @@ rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed ripgrep."
 
 echo "Downloading fzf..."
-curl -o ${DOTFILES_DIR}/fzf-0.62.0-linux_amd64.tar.gz -L https://github.com/junegunn/fzf/releases/download/v0.62.0/fzf-0.62.0-linux_amd64.tar.gz
+FILE='fzf-0.62.0-linux_amd64'
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/junegunn/fzf/releases/download/v0.62.0/${FILE}.tar.gz
 echo "Extrating tarball..."
-tar xzf ${DOTFILES_DIR}/fzf-0.62.0-linux_amd64.tar.gz -C ${DOTFILES_DIR}
+tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
 echo "Installing fzf..."
 sudo mv ${DOTFILES_DIR}/fzf /usr/local/bin/
 echo "Cleaning up..."
-rm -rf ${DOTFILES}/fzf-*
+rm -rf ${DOTFILES}/${FILE}*
 echo "Successfully installed fzf."
 
 echo "Downloading lazygit..."
-curl -o ${DOTFILES_DIR}/lazygit-0.50.0_Linux_x86_64.tar.gz -L https://github.com/jesseduffield/lazygit/releases/download/v0.50.0/lazygit_0.50.0_Linux_x86_64.tar.gz
+FILE='lazygit_0.50.0_Linux_x86_64'
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/jesseduffield/lazygit/releases/download/v0.50.0/${FILE}.tar.gz
 echo "Extracting tarball..."
-tar xzf ${DOTFILES_DIR}/lazygit-0.50.0_Linux_x86_64.tar.gz -C ${DOTFILES_DIR}
+tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz --exclude=LICENSE --exclude=README.md -C ${DOTFILES_DIR}
 echo "Installing lazygit..."
 sudo mv ${DOTFILES_DIR}/lazygit /usr/local/bin
 echo "Cleaning up..."
-rm -rf ${DOTFILES_DIR}/lazygit-* LICENSE
+rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed lazygit."
 
 echo "Installing dotfiles..."
