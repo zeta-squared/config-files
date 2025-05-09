@@ -2,6 +2,13 @@
 
 DOTFILES_DIR=$(dirname "$(realpath $0)")
 
+echo "========================================================================="
+echo ""
+echo "THIS IS AN INTERACTIVE INSTALLATION"
+echo "Make sure to respond when asked for input during the installation process"
+echo ""
+echo "========================================================================="
+
 echo "Installing curL..."
 sudo apt install curl
 echo "Successfully installed curL."
@@ -46,8 +53,8 @@ curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/BurntSushi/ripgrep/
 echo "Extracting tarball..."
 tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
 echo "Installing ripgrep..."
-sudo cp -f ${FILE}/rg /usr/local/bin/
-sudo cp -f ${FILE}/doc/rg.1 /usr/local/man/man1/
+sudo mv ${DOTFILES_DIR}/${FILE}/rg /usr/local/bin/
+sudo mv ${DOTFILES_DIR}/${FILE}/doc/rg.1 /usr/local/man/man1/
 echo "Cleaning up..."
 rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed ripgrep."
