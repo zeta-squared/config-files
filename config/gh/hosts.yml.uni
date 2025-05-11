@@ -1,4 +1,5 @@
 github.sydney.edu.au:
-    oauth_token: 
-    user: zzea5939
     git_protocol: https
+    users:
+        zzea5939:
+    user: zzea5939

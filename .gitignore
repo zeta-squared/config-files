@@ -1,5 +1,4 @@
 local/nvim/**/*
-config/gh/*
 !local/nvim/spell/**/*
 !local/nvim/UltiSnips/**/*
 !config/gh/config.yml
