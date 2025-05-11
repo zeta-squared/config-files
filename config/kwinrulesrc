@@ -1,0 +1,58 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+
+[1]
+Description=Application settings for discord
+clientmachine=localhost
+desktops=49c249ac-7da4-4f8f-9eb1-a6bd3edca424
+desktopsrule=2
+wmclass=discord
+wmclassmatch=1
+
+[2]
+Description=Application settings for firefox
+clientmachine=localhost
+desktops=bba07692-4c51-459e-8235-00a0855de4c2
+desktopsrule=2
+wmclass=navigator firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[2f8444f3-8cff-4d4f-a86b-99431fb6d403]
+Description=Application settings for firefox
+clientmachine=localhost
+desktops=bba07692-4c51-459e-8235-00a0855de4c2
+desktopsrule=2
+wmclass=navigator firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[3]
+Description=Application settings for thunderbird
+clientmachine=localhost
+desktops=2daae9fc-cb4e-415f-9541-67cdd5485019
+desktopsrule=2
+wmclass=mail thunderbird
+wmclasscomplete=true
+wmclassmatch=1
+
+[5c66c88d-64e6-4a45-9c61-69ea464c49d6]
+Description=Application settings for discord
+clientmachine=localhost
+desktops=49c249ac-7da4-4f8f-9eb1-a6bd3edca424
+desktopsrule=2
+wmclass=discord
+wmclassmatch=1
+
+[651c3f6b-49a1-49b9-a7d9-1e50f9be6278]
+Description=Application settings for thunderbird
+clientmachine=localhost
+desktops=2daae9fc-cb4e-415f-9541-67cdd5485019
+desktopsrule=2
+wmclass=mail thunderbird
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+count=3
+rules=1,2,3

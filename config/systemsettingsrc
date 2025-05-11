@@ -1,0 +1,18 @@
+[KFileDialog Settings]
+Recent Files[$e]=without_logo.jpg,file:$HOME/.config/old-autostart-scripts/git.sh,file:$HOME/.local/share/wallpapers/without_logo.jpg
+Recent URLs[$e]=file:$HOME/.config/old-autostart-scripts/,file:$HOME/.local/share/wallpapers/,file:$HOME/.local/share/,file:$HOME/,file:$HOME/Documents/
+detailViewIconSize=16
+
+[KPropertiesDialog]
+2560x1440 screen: Height=455
+2560x1440 screen: Width=421
+
+[MainWindow]
+2560x1440 screen: Height=704
+2560x1440 screen: Width=1020
+2560x1440 screen: XPosition=698
+2560x1440 screen: YPosition=306
+DP-2=DP-2
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAA/wAAALAAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
