@@ -1,4 +1,6 @@
 local/nvim/**/*
+local/wallpapers/**/*
 !local/nvim/spell/**/*
 !local/nvim/UltiSnips/**/*
 !config/gh/config.yml
+!local/wallpapers/without_logo.jpg

@@ -89,9 +89,12 @@ rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed lazygit."
 
 echo "Installing dotfiles..."
-cp -ft ${HOME} ${DOTFILES_DIR}/.bashrc ${DOTFILES_DIR}/.gitconfig
-cp -rf ${DOTFILES_DIR}/config/* ${HOME}/.config/
-cp -rf ${DOTFILES_DIR}/local/* ${HOME}/.local/share/
+ln -sf -t ${HOME} ${DOTFILES_DIR}/.bashrc ${DOTFILES_DIR}/.gitconfig
+ln -sf ${DOTFILES_DIR}/config/* ${HOME}/.config/
+ln -sf -t ${HOME}/.local/share/ ${DOTFILES_DIR}/local/konsole ${DOTFILES_DIR}/local/nvim ${DOTFILES_DIR}/local/wallpapers
+# cp -ft ${HOME} ${DOTFILES_DIR}/.bashrc ${DOTFILES_DIR}/.gitconfig
+# cp -rf ${DOTFILES_DIR}/config/* ${HOME}/.config/
+# cp -rf ${DOTFILES_DIR}/local/* ${HOME}/.local/share/
 echo "Successfully installed dotfiles."
 
 echo "Downloading neovim..."
