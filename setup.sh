@@ -91,10 +91,8 @@ echo "Successfully installed lazygit."
 echo "Installing dotfiles..."
 ln -sf -t ${HOME} ${DOTFILES_DIR}/.bashrc ${DOTFILES_DIR}/.gitconfig
 ln -sf ${DOTFILES_DIR}/config/* ${HOME}/.config/
-ln -sf -t ${HOME}/.local/share/ ${DOTFILES_DIR}/local/konsole ${DOTFILES_DIR}/local/nvim ${DOTFILES_DIR}/local/wallpapers
-# cp -ft ${HOME} ${DOTFILES_DIR}/.bashrc ${DOTFILES_DIR}/.gitconfig
-# cp -rf ${DOTFILES_DIR}/config/* ${HOME}/.config/
-# cp -rf ${DOTFILES_DIR}/local/* ${HOME}/.local/share/
+rm -rf ${HOME}/.local/share/konsole
+ln -sf ${DOTFILES_DIR}/local/* ${HOME}/.local/share/
 echo "Successfully installed dotfiles."
 
 echo "Downloading neovim..."
@@ -131,21 +129,15 @@ echo "Cleaning up..."
 rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz
 echo "Fonts have been installed."
 
-echo "Installing system and sddm theme..."
-git clone https://github.com/yeyushengfan258/Lyra-Cursors ${HOME}/Lyra-Cursors
-cd ${HOME}/Lyra-Cursors
-sudo bash ${HOME}/Lyra-Cursor/install.sh
+echo "Installing system and sddm themes..."
+sudo cp -rf ${DOTFILES_DIR}/icons/* /usr/share/icons/
 git clone https://github.com/vinceliuice/Layan-kde ${HOME}/Layan-kde
-cd ${HOME}/Layan-kde
 bash ${HOME}/Layan-kde/install.sh
 sudo bash ${HOME}/Layan-kde/sddm/6.0/install.sh
 git clone https://github.com/vinceliuice/Tela-icon-theme ${HOME}/Tela-icons
-cd ${HOME}/Tela-icons
 bash ${HOME}/Tela-icons/install.sh purple
-rm -rf ${HOME}/Lyra-Cursors ${HOME}/Layan-kde ${HOME}/Tela-icons
-# sudo cp -rf ${DOTFILES_DIR}/icons/* /usr/share/icons/
-# sudo cp -rf ${DOTFILES_DIR}/sddm/* /usr/share/sddm/themes/
-echo "Successfully installed system cursors and sdd theme."
+rm -rf ${HOME}/Layan-kde ${HOME}/Tela-icons
+echo "Successfully installed system and sddm themes."
 
 echo "Installing Firefox..."
 sudo add-apt-repository ppa:mozillateam/ppa
