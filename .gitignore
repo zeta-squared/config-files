@@ -1,6 +1,9 @@
 local/nvim/**/*
 local/wallpapers/**/*
+config/Kvantun/**/*
+
 !local/nvim/spell/**/*
 !local/nvim/UltiSnips/**/*
-!config/gh/config.yml
 !local/wallpapers/without_logo.jpg
+!config/gh/config.yml
+!config/Kvantum/kvantum.kvconfig
