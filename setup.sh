@@ -133,12 +133,16 @@ echo "Fonts have been installed."
 
 echo "Installing system and sddm theme..."
 git clone https://github.com/yeyushengfan258/Lyra-Cursors ${HOME}/Lyra-Cursors
-sudo bash ${HOME}/Lyra-Curso/install.sh
+cd ${HOME}/Lyra-Cursors
+sudo bash ${HOME}/Lyra-Cursor/install.sh
 git clone https://github.com/vinceliuice/Layan-kde ${HOME}/Layan-kde
+cd ${HOME}/Layan-kde
 bash ${HOME}/Layan-kde/install.sh
 sudo bash ${HOME}/Layan-kde/sddm/6.0/install.sh
-get clone https://github.com/vinceliuice/Tela-icon-theme ${HOME}/Tela-icons
+git clone https://github.com/vinceliuice/Tela-icon-theme ${HOME}/Tela-icons
+cd ${HOME}/Tela-icons
 bash ${HOME}/Tela-icons/install.sh purple
+rm -rf ${HOME}/Lyra-Cursors ${HOME}/Layan-kde ${HOME}/Tela-icons
 # sudo cp -rf ${DOTFILES_DIR}/icons/* /usr/share/icons/
 # sudo cp -rf ${DOTFILES_DIR}/sddm/* /usr/share/sddm/themes/
 echo "Successfully installed system cursors and sdd theme."
