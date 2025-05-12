@@ -8,6 +8,13 @@ echo "THIS IS AN INTERACTIVE INSTALLATION"
 echo "Make sure to respond when asked for input during the installation process"
 echo ""
 echo "========================================================================="
+echo ""
+read -p "Are you ready to continue? [y/N] " CONTINUE
+if [[ ${CONTINUE} != "y" ]]; then
+    echo "Exiting setup..."
+    exit 1
+fi
+
 
 echo "Installing curL..."
 sudo apt install curl
@@ -121,9 +128,16 @@ echo "Cleaning up..."
 rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz
 echo "Fonts have been installed."
 
-echo "Installing system cursors and sddm theme..."
-sudo cp -rf ${DOTFILES_DIR}/icons/* /usr/share/icons/
-sudo cp -rf ${DOTFILES_DIR}/sddm/* /usr/share/sddm/themes/
+echo "Installing system and sddm theme..."
+git clone https://github.com/yeyushengfan258/Lyra-Cursors ${HOME}/Lyra-Cursors
+sudo bash ${HOME}/Lyra-Curso/install.sh
+git clone https://github.com/vinceliuice/Layan-kde ${HOME}/Layan-kde
+bash ${HOME}/Layan-kde/install.sh
+sudo bash ${HOME}/Layan-kde/sddm/6.0/install.sh
+get clone https://github.com/vinceliuice/Tela-icon-theme ${HOME}/Tela-icons
+bash ${HOME}/Tela-icons/install.sh purple
+# sudo cp -rf ${DOTFILES_DIR}/icons/* /usr/share/icons/
+# sudo cp -rf ${DOTFILES_DIR}/sddm/* /usr/share/sddm/themes/
 echo "Successfully installed system cursors and sdd theme."
 
 echo "Installing Firefox..."
