@@ -66,6 +66,18 @@ echo "Cleaning up..."
 rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed ripgrep."
 
+echo "Downloading fd..."
+FILE='fd-v10.2.0-x86_64-unknown-linux-musl'
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/sharkdp/fd/releases/download/v10.2.0/${FILE}.tar.gz
+echo "Extracting tarball..."
+tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
+echo "Installing fd..."
+sudo mv ${DOTFILES_DIR}/${FILE}/fd /usr/local/bin/
+sudo mv ${DOTFILES_DIR}/${FILE}/fd.1 /usr/local/man/man1/
+echo "Cleaning up..."
+rm -rf ${DOTFILES_DIR}/${FILE}*
+echo "Successfully installed fd."
+
 echo "Downloading fzf..."
 FILE='fzf-0.62.0-linux_amd64'
 curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/junegunn/fzf/releases/download/v0.62.0/${FILE}.tar.gz
