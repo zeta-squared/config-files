@@ -43,6 +43,7 @@ local cat_config = {
                 String = { fg = c.red },
                 Constant = { fg = c.blue },
                 Special = { fg = c.lavender },
+                SpecialKey = { fg = c.mauve },
                 Boolean = { fg = c.red },
                 Operator = { fg = c.yellow },
                 Exception = { fg = c.yellow },
