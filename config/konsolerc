@@ -15,7 +15,7 @@ ConfigVersion=1
 [MainWindow]
 2560x1440 screen: Height=1366
 2560x1440 screen: Width=1272
-2560x1440 screen: XPosition=4
+2560x1440 screen: XPosition=1284
 2560x1440 screen: YPosition=28
 DP-2=DP-2
 MenuBar=Enabled

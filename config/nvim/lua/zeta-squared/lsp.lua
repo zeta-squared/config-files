@@ -48,15 +48,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 })
 
--- Capabilities for nvim-cmp
--- local capabilities = require('lspconfig').util.default_config.capabilities
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
--- Capabilities for blink.cmp
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-
 -- Lazydev lua_ls configuration
 require('lazydev').setup({
     library = {
@@ -65,22 +56,32 @@ require('lazydev').setup({
 })
 
 local servers = {
-    pyright = {},
-    lua_ls = {
-        settings = {
-            Lua = {
-                completion = {
-                    callSnippet = 'Replace',
-                },
-                diagnostics = {
-                    globals = { 'vim' },
+    pyright = {
+        lsp = 'pyright',
+        config = {},
+    },
+    ['lua-language-server'] = {
+        lsp = 'lua_ls',
+        config = {
+            settings = {
+                Lua = {
+                    completion = {
+                        callSnippet = 'Replace',
+                    },
+                    diagnostics = {
+                        globals = { 'vim' },
+                    },
                 },
             },
         },
     },
-    texlab = {},
-    ts_ls = {
-        settings = {
+    texlab = {
+        lsp = 'texlab',
+        config = {},
+    },
+    ['typescript-language-server'] = {
+        lsp = 'ts_ls',
+        config = {
             init_options = {
                 preferences = {
                     quotePreference = 'single',
@@ -88,7 +89,10 @@ local servers = {
             },
         },
     },
-    yamlls = {},
+    ['yaml-language-server'] = {
+        lsp = 'yamlls',
+        config = {},
+    },
 }
 
 require('mason').setup({})
@@ -101,21 +105,10 @@ require('mason-tool-installer').setup({
     })
 })
 
-require('mason-lspconfig').setup({
-    ensure_installed = {},
-    automatic_installation = false,
-    handlers = {
-        function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed by the servers
-            -- configuratio above. Useful when disabling certain feature of an LSP
-            -- (for example, turning off formatting for tsserver).
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-        end,
-    },
-})
-
+for _, settings in pairs(servers) do
+    vim.lsp.config(settings.lsp, settings.config)
+    vim.lsp.enable(settings.lsp)
+end
 
 -- Diagnostic Config
 vim.diagnostic.config({
