@@ -65,7 +65,7 @@ local term2 = fterm:new({
     cmd = 'bash',
     border = 'rounded',
     dimensions = {
-        height = 0.9,
+        height = 0.95,
         width = 0.5,
         x = 0.01,
         y = 0.3,
@@ -76,10 +76,10 @@ local term3 = fterm:new({
     cmd = 'bash',
     border = 'rounded',
     dimensions = {
-        height = 0.9,
+        height = 0.95,
         width = 0.5,
         x = 1.0,
-        y = 0.32,
+        y = 0.3,
     }
 })
 
@@ -120,10 +120,10 @@ end
 
 local theme = require('lualine.themes.catppuccin')
 theme.normal.c.bg = cat_colors.mantle
-theme.inactive.a = { fg = cat_colors.lavender, bg = cat_colors.mantle }
-theme.inactive.b = { fg = cat_colors.lavender, bg = cat_colors.mantle }
-theme.inactive.c = { fg = cat_colors.lavender, bg = cat_colors.mantle }
-theme.inactive.x = { fg = cat_colors.lavender, bg = cat_colors.mantle }
+theme.inactive.a = { fg = cat_colors.subtext0, bg = cat_colors.mantle }
+theme.inactive.b = { fg = cat_colors.subtext0, bg = cat_colors.mantle }
+theme.inactive.c = { fg = cat_colors.subtext0, bg = cat_colors.mantle }
+theme.inactive.x = { fg = cat_colors.subtext0, bg = cat_colors.mantle }
 
 require('lualine').setup({
     options = {
@@ -192,7 +192,13 @@ require('bufferline').setup({
             style = 'icon',
         },
     },
-    highlights = require('catppuccin.groups.integrations.bufferline').get()
+    highlights = require('catppuccin.groups.integrations.bufferline').get({
+        custom = {
+            macchiato = {
+                duplicate = { fg = cat_colors.subtext0, bg = cat_colors.mantle },
+            },
+        },
+    })
 })
 
 -- Nvim-tree Config
