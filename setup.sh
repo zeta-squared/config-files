@@ -54,6 +54,18 @@ corepack enable pnpm
 pnpm -v
 echo "Successfully installed node with pnpm."
 
+echo "Downloading Golang..."
+FILE='go1.24.3.linux-amd64.tar.gz'
+curl -o ${DOTFILES_DIR}/${FILE} -L https://go.dev/dl/${FILE}
+echo "Extracting tarball..."
+tar xzf ${DOTFILES_DIR}/${FILE} -C ${DOTFILES_DIR}
+echo "Installing Golang..."
+sudo rm -rf /usr/local/go/
+sudo mv ${DOTFILES_DIR}/go/ /usr/local/
+echo "Cleaning up..."
+rm -rf ${DOTFILES_DIR}/${FILE}
+echo "Successfully installed Golang."
+
 echo "Downloading ripgrep..."
 FILE='ripgrep-14.1.1-x86_64-unknown-linux-musl'
 curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/${FILE}.tar.gz
