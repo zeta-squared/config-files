@@ -156,6 +156,7 @@ alias python=python3
 alias pip='python3 -m pip'
 alias tipon='cd /home/zeaiter/Documents/Tipon/ && source venv/bin/activate'
 alias sd='cd ~ && cd "$(fzf --walker=dir,follow,hidden --reverse --height 40%)"'
+alias lg=lazygit
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=/opt/jdk-17.0.7/bin:$PATH
