@@ -31,7 +31,6 @@ fzflua.setup({
     actions = {
         files = {
             true,
-            ['enter'] = actions.file_edit,
             ['ctrl-t'] = function(...)
                 actions.file_tabedit(...)
                 vim.cmd('$tabmove')
