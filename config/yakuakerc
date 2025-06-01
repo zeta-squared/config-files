@@ -8,4 +8,5 @@ FirstRun=false
 DynamicTabTitles=true
 Height=100
 Position=50
+ToggleToFocus=true
 Width=100
