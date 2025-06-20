@@ -223,19 +223,19 @@
 
 	keymap {
     	compatible = "zmk,keymap";
-            //unix
+        //mac
         default_layer {
         bindings = <
             &kp ESC     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12     &kp DEL
             &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS   &kp EQUAL   &kp BSPC
             &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp BSLH
-            &lt 4 CLCK  &kp A       &mt LCTL S  &mt LALT D  &mt LGUI F  &kp G       &kp H       &mt RGUI J  &mt RALT K  &mt RCTL L  &kp SEMI    &kp SQT                 &kp RET
+            &lt 4 CLCK  &kp A       &mt LCTL S  &mt LGUI D  &mt LALT F  &kp G       &kp H       &mt RALT J  &mt RGUI K  &mt RCTL L  &kp SEMI    &kp SQT                 &kp RET
             &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH                            &kp RSHFT
-            &kp LCTRL   &uc LALT    &uc LGUI                                &kp SPACE                       &uc RGUI    &mo 1       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
+            &kp LCTRL   &uc LGUI    &uc LALT                                &kp SPACE                       &uc RALT    &mo 1       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
             &mo 2       &out OUT_BLE            &out OUT_24G            &out OUT_CHG            &out OUT_CHGD
         >;
         };
-        //unix
+        //mac
         layer_one  {
         bindings = < 
             &trans      &kp BRID            &kp BRIU        &kp MCTL        &kp SLEP        &kp SRCH        &kp LOCK        &kp MPRV    &kp MPLY    &kp MNXT        &kp MUTE        &kp VOLD    &kp VOLU    &trans
@@ -247,19 +247,19 @@
             &none       &none               &none           &none            &none 
         >;
         };
-        //win
+        //win/unix
         layer_two {
  		bindings = <
             &kp ESC     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12     &kp DEL
             &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS   &kp EQUAL   &kp BSPC
             &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp BSLH
-            &lt 4 CLCK  &kp A       &mt LCTL S  &mt LGUI D  &mt LALT F  &kp G       &kp H       &mt RALT J  &mt RGUI K  &mt RCTL L  &kp SEMI    &kp SQT                 &kp RET
+            &lt 5 CLCK  &kp A       &mt LCTL S  &mt LGUI D  &mt LALT F  &kp G       &kp H       &mt RALT J  &mt RGUI K  &mt RCTL L  &kp SEMI    &kp SQT                 &kp RET
             &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH                            &kp RSHFT
             &kp LCTRL   &uc LGUI    &uc LALT                                &kp SPACE                       &uc RALT    &mo 3       &kp LEFT    &kp UP      &kp DOWN    &kp RIGHT
             &mo 2       &out OUT_BLE            &out OUT_24G            &out OUT_CHG            &out OUT_CHGD
         >;
         };
-        //win
+        //win/unix
         layer_three {
         bindings = < 
             &trans      &kp BRID            &kp BRIU        &kp MCTL        &kp SLEP        &kp SRCH        &kp LOCK        &kp MPRV    &kp MPLY    &kp MNXT        &kp MUTE        &kp VOLD    &kp VOLU    &trans
@@ -271,8 +271,8 @@
             &none       &none               &none           &none            &none 
         >;
         };
-        //raise
-        layer_four  {
+        //lower
+        layer_four {
         bindings = < 
             &trans      &kp BRID    &kp BRIU        &kp MCTL        &kp SLEP        &kp SRCH        &kp LOCK        &kp MPRV    &kp MPLY    &kp MNXT        &kp MUTE        &kp VOLD    &kp VOLU    &trans
             &trans      &kp F1      &kp F2          &kp F3          &kp F4          &kp F5          &kp F6          &kp F7      &kp F8      &kp F9          &kp F10         &kp F11     &kp F12     &trans
@@ -280,6 +280,18 @@
             &trans      &trans      &trans          &kp LC(PG_UP)   &kp LC(PG_DN)   &trans          &kp LEFT        &kp DOWN    &kp UP      &kp RIGHT       &trans          &trans                  &trans      
             &trans      &trans      &trans          &trans          &kp LA(LCTL)    &trans          &trans          &kp END     &kp HOME    &kp DEL         &trans                                  &trans 
             &trans      &trans      &trans                                              &trans                                  &trans      &trans          &trans          &trans      &trans      &trans   
+            &none       &none       &none           &none           &none 
+        >;
+        };
+        //raise
+        layer_five  {
+        bindings = < 
+            &trans      &kp BRID    &kp BRIU        &kp MCTL        &kp SLEP        &kp SRCH        &kp LOCK        &kp MPRV    &kp MPLY    &kp MNXT        &kp MUTE            &kp VOLD    &kp VOLU    &trans
+            &trans      &kp F1      &kp F2          &kp F3          &kp F4          &kp F5          &kp F6          &kp F7      &kp F8      &kp F9          &kp F10             &kp F11     &kp F12     &trans
+            &trans      &trans      &kp LC(LS(N9))  &kp LS(LEFT)    &kp LS(RIGHT)   &kp LC(LS(T))   &kp LA(LEFT)    &kp PG_DN   &kp PG_UP   &kp LA(RIGHT)   &kp LG(LS(PSCRN))   &trans      &trans      &kp LC(RBKT)
+            &trans      &trans      &trans          &kp LC(PG_UP)   &kp LC(PG_DN)   &trans          &kp LEFT        &kp DOWN    &kp UP      &kp RIGHT       &trans              &trans                  &trans      
+            &trans      &trans      &trans          &trans          &kp LA(LCTL)    &trans          &trans          &kp END     &kp HOME    &kp DEL         &trans                                      &trans 
+            &trans      &trans      &trans                                              &trans                                  &trans      &trans          &trans              &trans      &trans      &trans   
             &none       &none       &none           &none           &none 
         >;
         };
