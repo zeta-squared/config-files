@@ -154,7 +154,7 @@ alias vim=nvim
 alias invim='cd /home/zeaiter/.config/nvim && vim'
 alias python=python3
 alias pip='python3 -m pip'
-alias tipon='cd /home/zeaiter/Documents/Tipon/ && source venv/bin/activate'
+alias tipon='cd /home/zeaiter/Documents/tipon/ && source venv/bin/activate'
 alias sd='cd ~ && cd "$(fzf --walker=dir,follow,hidden --reverse --height 40%)"'
 alias lg=lazygit
 

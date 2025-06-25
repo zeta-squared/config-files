@@ -5,40 +5,22 @@ nm-online
 gh personal
 
 repositories=(
-	"/home/zeaiter/Documents/API/Canvas/"
-	"/home/zeaiter/Documents/API/GitHub/"
-	"/home/zeaiter/Documents/Script Tools/"
-	"/home/zeaiter/Documents/Config Files/"
-	"/home/zeaiter/Documents/Tipon"
-	"/home/zeaiter/Documents/DB_Backups"
-	"/home/zeaiter/Documents/Learning Java"
-	"/home/zeaiter/Documents/University/"
+	"/home/zeaiter/Documents/config-files"
+	"/home/zeaiter/Documents/tipon"
+	"/home/zeaiter/Documents/db-backups"
+	"/home/zeaiter/Documents/university"
 	"/home/zeaiter/texmf"
-	"/home/zeaiter/Documents/CV/"
+	"/home/zeaiter/Documents/cv"
 )
 
 for (( i=0 ; i < ${#repositories[@]} ; i++ ))
 do
 	git -C "${repositories[$i]}" pull origin master
 done
-
-gh uni
-
-repositories=(
-	"/home/zeaiter/Documents/canvasapi/"
-	"/home/zeaiter/Documents/periodic-logistic"
-)
-
-for (( i=0 ; i < ${#repositories[@]} ; i++ ))
-do
-	git -C "${repositories[$i]}" pull origin master
-done
-
-gh personal
 
 # First change directories and set variables for current day date and
 # yesterday's date.
-cd /home/zeaiter/Documents/DB_Backups/Tipon
+cd /home/zeaiter/Documents/db-backups/tipon/
 
 # Count the number of files in the directory.
 file_count=$(ls -q *.sql | wc -l)

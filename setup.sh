@@ -154,7 +154,7 @@ rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz
 echo "Fonts have been installed."
 
 echo "Installing system and sddm themes..."
-sudo cp -rf ${DOTFILES_DIR}/icons/* /usr/share/icons/
+sudo ln -sf ${DOTFILES_DIR}/icons/* /usr/local/share/
 git clone https://github.com/vinceliuice/Layan-kde ${HOME}/Layan-kde
 bash ${HOME}/Layan-kde/install.sh
 sudo bash ${HOME}/Layan-kde/sddm/6.0/install.sh
