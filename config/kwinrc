@@ -4,18 +4,17 @@ update_info=kwin.upd:replace-scalein-with-scale,kwin.upd:port-minimizeanimation-
 [Desktops]
 Id_1=2daae9fc-cb4e-415f-9541-67cdd5485019
 Id_2=045c6f45-bd5b-4fb9-840f-1cc1c946f219
-Id_3=5d065e71-b833-4dcd-8064-e83d4bf291ac
-Id_4=3bbf55c9-6bb8-4001-9bbc-e356e6af18ca
-Id_5=bba07692-4c51-459e-8235-00a0855de4c2
-Id_6=49c249ac-7da4-4f8f-9eb1-a6bd3edca424
+Id_3=bba07692-4c51-459e-8235-00a0855de4c2
+Id_4=49c249ac-7da4-4f8f-9eb1-a6bd3edca424
 Name_1=Thunderbird
-Name_2=Work 1
-Name_3=Work 2
-Name_4=Work 3
-Name_5=Firefox
-Name_6=Discord
-Number=6
+Name_2=Work
+Name_3=Firefox
+Name_4=Discord
+Number=4
 Rows=1
+
+[Plugins]
+slideEnabled=false
 
 [Tiling]
 padding=4

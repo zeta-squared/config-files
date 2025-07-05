@@ -101,6 +101,21 @@ echo "Cleaning up..."
 rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed fzf."
 
+echo "Downloading tmux..."
+FILE='tmux-3.5a'
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/tmux/tmux/releases/download/3.5a/${FILE}.5a.tar.gz
+echo "Extracting tarball..."
+tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
+echo "Installing tmux..."
+sudo apt install -y libevent-dev ncurses-dev build-essential bison pkg-config
+cd ${DOTFILES_DIR}/${FILE}/
+sh ./configure
+sh make && sudo make install
+echo "Clearning up..."
+cd ${DOTFILES_DIR}
+rm -rf ${DOTFILES_DIR}/${FILE}*
+echo "Successfully installed tmux."
+
 echo "Downloading lazygit..."
 FILE='lazygit_0.50.0_Linux_x86_64'
 curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/jesseduffield/lazygit/releases/download/v0.50.0/${FILE}.tar.gz
@@ -117,6 +132,7 @@ ln -sf -t ${HOME} ${DOTFILES_DIR}/.bashrc ${DOTFILES_DIR}/.gitconfig
 ln -sf ${DOTFILES_DIR}/config/* ${HOME}/.config/
 rm -rf ${HOME}/.local/share/konsole
 ln -sf ${DOTFILES_DIR}/local/* ${HOME}/.local/share/
+ln -sf ${DOTFILES_DIR}/.tmux.conf ${HOME}/
 echo "Successfully installed dotfiles."
 
 echo "Downloading neovim..."
@@ -178,20 +194,11 @@ sudo apt install firefox
 echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 echo "Successfully installed Firefox."
 
-echo "Setting up Docker's apt repository..."
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
 echo "Installing docker..."
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-echo "Configuring group to manage docker as non-root user..."
-sudo groupadd docker
-sudo usermod -aG docker ${USER}
+curl -fsSL https://get.docker.com -o install-docker.sh
+sudo sh ./install-docker.sh
+rm -f install-docker.sh
+echo "Configuring docker to run in rootless mode..."
+sudo apt install -y uidmap
+dockerd-rootless-setuptool.sh install
 echo "Successfully installed docker."
