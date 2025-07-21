@@ -288,7 +288,7 @@
         bindings = < 
             &trans      &kp BRID    &kp BRIU        &kp MCTL        &kp SLEP        &kp SRCH        &kp LOCK        &kp MPRV    &kp MPLY    &kp MNXT        &kp MUTE            &kp VOLD    &kp VOLU    &trans
             &trans      &kp F1      &kp F2          &kp F3          &kp F4          &kp F5          &kp F6          &kp F7      &kp F8      &kp F9          &kp F10             &kp F11     &kp F12     &trans
-            &trans      &trans      &kp LC(LS(N9))  &kp LS(LEFT)    &kp LS(RIGHT)   &kp LC(LS(T))   &kp LA(LEFT)    &kp PG_DN   &kp PG_UP   &kp LA(RIGHT)   &kp LG(LS(PSCRN))   &trans      &trans      &kp LC(RBKT)
+            &trans      &trans      &kp LC(LS(N9))  &kp LS(LEFT)    &kp LS(RIGHT)   &kp LC(LS(T))   &kp LC(LEFT)    &kp PG_DN   &kp PG_UP   &kp LC(RIGHT)   &kp LG(LS(PSCRN))   &trans      &trans      &kp LC(RBKT)
             &trans      &trans      &trans          &kp LC(PG_UP)   &kp LC(PG_DN)   &trans          &kp LEFT        &kp DOWN    &kp UP      &kp RIGHT       &trans              &trans                  &trans      
             &trans      &trans      &trans          &trans          &kp LA(LCTL)    &trans          &trans          &kp END     &kp HOME    &kp DEL         &trans                                      &trans 
             &trans      &trans      &trans                                              &trans                                  &trans      &trans          &trans              &trans      &trans      &trans   
