@@ -173,7 +173,7 @@ echo "Installing system and sddm themes..."
 sudo ln -sf ${DOTFILES_DIR}/icons/* /usr/local/share/
 git clone https://github.com/vinceliuice/Layan-kde ${HOME}/Layan-kde
 bash ${HOME}/Layan-kde/install.sh
-sudo bash ${HOME}/Layan-kde/sddm/6.0/install.sh
+sudo bash ${HOME}/Layan-kde/sddm/5.0/install.sh
 git clone https://github.com/vinceliuice/Tela-icon-theme ${HOME}/Tela-icons
 bash ${HOME}/Tela-icons/install.sh purple
 rm -rf ${HOME}/Layan-kde ${HOME}/Tela-icons
