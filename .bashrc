@@ -162,6 +162,7 @@ export PATH=/opt/jdk-17.0.7/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export FZF_DEFAULT_COMMAND='fd -t d'
 export FZF_DEFAULT_OPTS='--walker-skip .git,node_modules,venv'
+export EDITOR=vim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
