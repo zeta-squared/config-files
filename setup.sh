@@ -146,7 +146,7 @@ sudo cp -rf ${DOTFILES_DIR}/${FILE}/lib/* /usr/local/lib/
 sudo cp -rf ${DOTFILES_DIR}/${FILE}/share/* /usr/local/share/
 echo "Installing dependencies for neovim..."
 sudo apt install xclip
-npm i -g tree-sitter-cli
+npm i -g tree-sitter-cli@0.25.10
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo "Creating python provider for neovim..."
