@@ -103,7 +103,7 @@ echo "Successfully installed fzf."
 
 echo "Downloading tmux..."
 FILE='tmux-3.5a'
-curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/tmux/tmux/releases/download/3.5a/${FILE}.5a.tar.gz
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/tmux/tmux/releases/download/3.5a/${FILE}.tar.gz
 echo "Extracting tarball..."
 tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
 echo "Installing tmux..."
