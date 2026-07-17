@@ -137,7 +137,7 @@ echo "Successfully installed dotfiles."
 
 echo "Downloading neovim..."
 FILE='nvim-linux-x86_64'
-curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/neovim/neovim/releases/download/v0.11.1/${FILE}.tar.gz
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/neovim/neovim/releases/download/v0.11.7/${FILE}.tar.gz
 echo "Extracting tarball..."
 tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
 echo "Installing neovim..."
