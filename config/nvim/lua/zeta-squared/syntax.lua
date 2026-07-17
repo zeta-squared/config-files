@@ -1,4 +1,7 @@
 -- Treesitter Config
+
+-- @deprecated: replace with the commented config at the bottom of
+-- this file when migrating to main branch and neovim v0.12.0+
 require('nvim-treesitter.configs').setup {
 	ensure_installed = {"c", "java", "javascript", "typescript", "tsx", "vim",
 		"python", "lua", "html", "json", "jsonc", "css", "scss", "yaml",
@@ -15,6 +18,7 @@ require('nvim-treesitter.configs').setup {
             enable = true,
             set_jumps = true,
             goto_next_start = {
+                ["]v"] = "@assignment.lhs",
                 ["]of"] = "@function.outer",
                 ["]if"] = "@function.inner",
                 ["]or"] = "@return.outer",
@@ -30,6 +34,7 @@ require('nvim-treesitter.configs').setup {
                 ["]z"] = "@fold",
             },
             goto_previous_start = {
+                ["[v"] = "@assignment.lhs",
                 ["[of"] = "@function.outer",
                 ["[if"] = "@function.inner",
                 ["[or"] = "@return.outer",
@@ -43,36 +48,6 @@ require('nvim-treesitter.configs').setup {
                 ["[ol"] = "@loop.outer",
                 ["[il"] = "@loop.inner",
                 ["[z"] = "@fold",
-            },
-            goto_next_end = {
-                ["}of"] = "@function.outer",
-                ["}if"] = "@function.inner",
-                ["}or"] = "@return.outer",
-                ["}ir"] = "@return.inner",
-                ["}ob"] = "@block.outer",
-                ["}ib"] = "@block.inner",
-                ["}os"] = "@call.outer",
-                ["}is"] = "@call.inner",
-                ["}oc"] = "@conditional.outer",
-                ["}ic"] = "@conditional.inner",
-                ["}ol"] = "@loop.outer",
-                ["}il"] = "@loop.inner",
-                ["}z"] = "@fold",
-            },
-            goto_previous_end = {
-                ["{of"] = "@function.outer",
-                ["{if"] = "@function.inner",
-                ["{or"] = "@return.outer",
-                ["{ir"] = "@return.inner",
-                ["{ob"] = "@block.outer",
-                ["{ib"] = "@block.inner",
-                ["{os"] = "@call.outer",
-                ["{is"] = "@call.inner",
-                ["{oc"] = "@conditional.outer",
-                ["{ic"] = "@conditional.inner",
-                ["{ol"] = "@loop.outer",
-                ["{il"] = "@loop.inner",
-                ["{z"] = "@fold",
             },
         },
         select = {
@@ -96,6 +71,12 @@ require('nvim-treesitter.configs').setup {
         }
     }
 }
+
+local ts_repeat_move = require('nvim-treesitter.textobjects.repeatable_move')
+
+-- Repeat movement similar to default vim way with ; (]]) and ,([[)
+vim.keymap.set({'n', 'x', 'o'}, ']]', ts_repeat_move.repeat_last_move_next)
+vim.keymap.set({'n', 'x', 'o'}, '[[', ts_repeat_move.repeat_last_move_previous)
 
 -- Mini Config
 local mini = require('mini.icons')
