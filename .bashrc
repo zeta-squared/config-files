@@ -172,3 +172,6 @@ export NVM_DIR="$HOME/.nvm"
 if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
     exec tmux new-session -A -s ${USER} >/dev/null 2>&1
 fi
+
+# opencode
+export PATH=/home/zeaiter/.opencode/bin:$PATH

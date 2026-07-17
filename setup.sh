@@ -202,3 +202,7 @@ echo "Configuring docker to run in rootless mode..."
 sudo apt install -y uidmap
 dockerd-rootless-setuptool.sh install
 echo "Successfully installed docker."
+
+echo "Installing opencode..."
+curl -fsSL https://opencode.ai/install | bash
+echo "Successfully installed opencode."
