@@ -52,6 +52,7 @@ local servers = {
         config = {
             settings = {
                 gopls = {
+                    semanticTokens = false,
                     completeFunctionCalls = false,
                 },
             },
