@@ -1,7 +1,7 @@
 [Appearance]
 BoldIntense=false
 ColorScheme=twilight-desert
-Font=SauceCodePro NF,13.5,-1,5,63,1,0,0,0,0,Italic
+Font=GeistMono Nerd Font,13.5,-1,5,57,1,0,0,0,0,Medium Italic
 
 [General]
 Command=/usr/bin/bash

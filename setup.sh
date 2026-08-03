@@ -163,10 +163,14 @@ echo "Successfully installed neovim."
 echo "Installing fonts..."
 mkdir -p ${HOME}/.local/share/fonts/
 curl -o ${HOME}/.local/share/fonts/SourceCodePro.tar.xz\
-    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/SourceCodePro.tar.xz
+    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/SourceCodePro.tar.xz
+curl -o ${HOME}/.local/share/fonts/GeistMono.tar.xz\
+    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/GeistMono.tar.xz
 tar xf ${HOME}/.local/share/fonts/SourceCodePro.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/
+tar xf ${HOME}/.local/share/fonts/GeistMono.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/
 echo "Cleaning up..."
 rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz
+rm -f ${HOME}/.local/share/fonts/GeistMono.tar.xz
 echo "Fonts have been installed."
 
 echo "Installing system and sddm themes..."
