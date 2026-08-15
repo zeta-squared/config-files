@@ -161,13 +161,14 @@ rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed neovim."
 
 echo "Installing fonts..."
-mkdir -p ${HOME}/.local/share/fonts/
+mkdir -p ${HOME}/.local/share/fonts/SauceCodePro/
+mkdir -p ${HOME}/.local/share/fonts/GeistMono/
 curl -o ${HOME}/.local/share/fonts/SourceCodePro.tar.xz\
     -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/SourceCodePro.tar.xz
 curl -o ${HOME}/.local/share/fonts/GeistMono.tar.xz\
     -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/GeistMono.tar.xz
-tar xf ${HOME}/.local/share/fonts/SourceCodePro.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/
-tar xf ${HOME}/.local/share/fonts/GeistMono.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/
+tar xf ${HOME}/.local/share/fonts/SourceCodePro.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/SauceCodePro/
+tar xf ${HOME}/.local/share/fonts/GeistMono.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/GeistMono/
 echo "Cleaning up..."
 rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz
 rm -f ${HOME}/.local/share/fonts/GeistMono.tar.xz
