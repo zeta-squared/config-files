@@ -137,7 +137,7 @@ echo "Successfully installed dotfiles."
 
 echo "Downloading neovim..."
 FILE='nvim-linux-x86_64'
-curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/neovim/neovim/releases/download/v0.11.1/${FILE}.tar.gz
+curl -o ${DOTFILES_DIR}/${FILE}.tar.gz -L https://github.com/neovim/neovim/releases/download/v0.11.7/${FILE}.tar.gz
 echo "Extracting tarball..."
 tar xzf ${DOTFILES_DIR}/${FILE}.tar.gz -C ${DOTFILES_DIR}
 echo "Installing neovim..."
@@ -161,12 +161,18 @@ rm -rf ${DOTFILES_DIR}/${FILE}*
 echo "Successfully installed neovim."
 
 echo "Installing fonts..."
-mkdir -p ${HOME}/.local/share/fonts/
+mkdir -p ${HOME}/.local/share/fonts/SauceCodePro/ ${HOME}/.local/share/fonts/GeistMono/ ${HOME}/.local/share/fonts/Hasklug/
 curl -o ${HOME}/.local/share/fonts/SourceCodePro.tar.xz\
-    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/SourceCodePro.tar.xz
-tar xf ${HOME}/.local/share/fonts/SourceCodePro.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/
+    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/SourceCodePro.tar.xz
+curl -o ${HOME}/.local/share/fonts/GeistMono.tar.xz\
+    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/GeistMono.tar.xz
+curl -o ${HOME}/.local/share/fonts/SourceCodePro.tar.xz\
+    -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/Hasklig.tar.xz
+tar xf ${HOME}/.local/share/fonts/SourceCodePro.tar.xz --exclude=LICENSE.txt --exclude=README.md -C ${HOME}/.local/share/fonts/SauceCodePro/
+tar xf ${HOME}/.local/share/fonts/GeistMono.tar.xz --exclude=LICENSE --exclude=README.md -C ${HOME}/.local/share/fonts/GeistMono/
+tar xf ${HOME}/.local/share/fonts/Hasklig.tar.xz --exclude=LICENSE.md --exclude=README.md -C ${HOME}/.local/share/fonts/Hasklug/
 echo "Cleaning up..."
-rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz
+rm -f ${HOME}/.local/share/fonts/SourceCodePro.tar.xz ${HOME}/.local/share/fonts/GeistMono.tar.xz ${HOME}/.local/share/fonts/Hasklig.tar.xz
 echo "Fonts have been installed."
 
 echo "Installing system and sddm themes..."
@@ -202,3 +208,7 @@ echo "Configuring docker to run in rootless mode..."
 sudo apt install -y uidmap
 dockerd-rootless-setuptool.sh install
 echo "Successfully installed docker."
+
+echo "Installing opencode..."
+curl -fsSL https://opencode.ai/install | bash
+echo "Successfully installed opencode."

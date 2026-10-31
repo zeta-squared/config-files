@@ -136,8 +136,8 @@ ForegroundPositive=0,110,40
 ForegroundVisited=224,64,251
 
 [DirSelect Dialog]
-DirSelectDialog Size=829,570
-History Items[$e]=file:$HOME/.config/Kvantum/Layan/,file:$HOME/.config/Kvantum/,file:$HOME/.config/,file:$HOME/.con,file:$HOME/.config/Kvantum/,file:$HOME/.config/Kvantum/Layan/,file:$HOME/.config/Kvan,file:$HOME/.config/Kvantum/Layan/,file:$HOME/.config/Kvantum/,file:$HOME/.config/Kvantum,file:$HOME/.config/Kvan
+DirSelectDialog Size=827,573
+History Items[$e]=file:$HOME/Documents/config-files/config/Kvantum/Layan,file:$HOME/.config/Kvantum/Layan/,file:$HOME/.config/Kvantum/,file:$HOME/.config/,file:$HOME/.con,file:$HOME/.config/Kvantum/,file:$HOME/.config/Kvantum/Layan/,file:$HOME/.config/Kvan,file:$HOME/.config/Kvantum/Layan/,file:$HOME/.config/Kvantum/,file:$HOME/.config/Kvantum,file:$HOME/.config/Kvan
 
 [General]
 BrowserApplication=firefox.desktop

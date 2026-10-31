@@ -1,8 +1,14 @@
+[Behavior]
+OpenAfterStart=false
+
 [Desktop Entry]
 DefaultProfile=Twilight Desert.profile
 
 [Dialogs]
 FirstRun=false
+
+[KFileDialog Settings]
+detailViewIconSize=16
 
 [Shortcuts]
 switch-to-session-1=Ctrl+1

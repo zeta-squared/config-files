@@ -13,9 +13,6 @@ Name_4=Discord
 Number=4
 Rows=1
 
-[Plugins]
-slideEnabled=false
-
 [Tiling]
 padding=4
 
