@@ -175,3 +175,6 @@ fi
 
 # opencode
 export PATH=/home/zeaiter/.opencode/bin:$PATH
+
+unset SSH_ASKPASS
+unset SSH_ASKPASS_REQUIRE
