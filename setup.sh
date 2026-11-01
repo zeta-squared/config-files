@@ -110,7 +110,7 @@ echo "Installing tmux..."
 sudo apt install -y libevent-dev ncurses-dev build-essential bison pkg-config
 cd ${DOTFILES_DIR}/${FILE}/
 sh ./configure
-sh make && sudo make install
+make && sudo make install
 echo "Clearning up..."
 cd ${DOTFILES_DIR}
 rm -rf ${DOTFILES_DIR}/${FILE}*
@@ -153,7 +153,7 @@ echo "Creating python provider for neovim..."
 python3 -m venv ${HOME}/.local/share/nvim/nvim_venv
 source ${HOME}/.local/share/nvim/nvim_venv/bin/activate
 pip install pynvim
-deactive
+deactivate
 echo "Running plugin installation..."
 /usr/local/bin/nvim -c PlugInstall -c q -c q
 echo "Cleaning up..."
