@@ -86,7 +86,7 @@ install_base_packages() {
 
 install_node() {
     load_nvm
-    if has_cmd node && node -v | grep -q "^v${NODE_MAJOR}\."; then
+    if has_cmd node; then
         installed "node $(node -v)"
     else
         if (( CHECK_ONLY )); then
@@ -107,7 +107,7 @@ install_node() {
 
 install_go() {
     local file="go${GO_VERSION}.linux-amd64.tar.gz"
-    if [ -x /usr/local/go/bin/go ] && /usr/local/go/bin/go version | grep -q "go${GO_VERSION}"; then
+    if [ -x /usr/local/go/bin/go ]; then
         installed "go ${GO_VERSION}"
         return 0
     fi
@@ -126,7 +126,7 @@ install_go() {
 
 install_ripgrep() {
     local file="ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl"
-    if has_cmd rg && rg --version | head -n 1 | grep -qF "${RG_VERSION}"; then
+    if has_cmd rg; then
         installed "ripgrep ${RG_VERSION}"
         return 0
     fi
@@ -145,7 +145,7 @@ install_ripgrep() {
 
 install_fd() {
     local file="fd-v${FD_VERSION}-x86_64-unknown-linux-musl"
-    if has_cmd fd && fd --version | head -n 1 | grep -qF "${FD_VERSION}"; then
+    if has_cmd fd; then
         installed "fd ${FD_VERSION}"
         return 0
     fi
@@ -164,7 +164,7 @@ install_fd() {
 
 install_fzf() {
     local file="fzf-${FZF_VERSION}-linux_amd64"
-    if has_cmd fzf && fzf --version | grep -qF "${FZF_VERSION}"; then
+    if has_cmd fzf; then
         installed "fzf ${FZF_VERSION}"
         return 0
     fi
@@ -182,7 +182,7 @@ install_fzf() {
 
 install_tmux() {
     local file="tmux-${TMUX_VERSION}"
-    if has_cmd tmux && tmux -V | grep -qF "${TMUX_VERSION}"; then
+    if has_cmd tmux; then
         installed "tmux ${TMUX_VERSION}"
         return 0
     fi
@@ -201,7 +201,7 @@ install_tmux() {
 
 install_lazygit() {
     local file="lazygit_${LAZYGIT_VERSION}_Linux_x86_64"
-    if has_cmd lazygit && lazygit --version | grep -qF "${LAZYGIT_VERSION}"; then
+    if has_cmd lazygit; then
         installed "lazygit ${LAZYGIT_VERSION}"
         return 0
     fi
@@ -219,7 +219,7 @@ install_lazygit() {
 
 install_neovim() {
     local file='nvim-linux-x86_64'
-    if has_cmd nvim && nvim --version | head -n 1 | grep -qF "v${NVIM_VERSION}"; then
+    if has_cmd nvim; then
         installed "neovim ${NVIM_VERSION}"
         return 0
     fi
@@ -238,7 +238,7 @@ install_neovim() {
 }
 
 install_tree_sitter() {
-    if has_cmd tree-sitter && tree-sitter --version | grep -qF "${TREE_SITTER_VERSION}"; then
+    if has_cmd tree-sitter; then
         installed "tree-sitter-cli ${TREE_SITTER_VERSION}"
         return 0
     fi
