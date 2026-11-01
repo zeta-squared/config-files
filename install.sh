@@ -24,9 +24,6 @@ BASE_PACKAGES=(
     python3-venv
     xclip
     software-properties-common
-)
-
-TMUX_BUILD_PACKAGES=(
     libevent-dev
     ncurses-dev
     build-essential
@@ -64,19 +61,23 @@ load_nvm() {
 
 apt_install() {
     local pkg missing_pkgs=()
+
     for pkg in "$@"; do
         if ! dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q "install ok installed"; then
             missing_pkgs+=("$pkg")
         fi
     done
+
     if (( ${#missing_pkgs[@]} == 0 )); then
         installed "$*"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "${missing_pkgs[*]}"
         return 0
     fi
+
     sudo apt-get -qq install -y "${missing_pkgs[@]}"
 }
 
@@ -86,6 +87,7 @@ install_base_packages() {
 
 install_node() {
     load_nvm
+
     if has_cmd node; then
         installed "node $(node -v)"
     else
@@ -93,28 +95,34 @@ install_node() {
             missing "node ${NODE_MAJOR}"
             return 0
         fi
+
         if [ ! -s "${NVM_DIR}/nvm.sh" ]; then
             curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
             load_nvm
         fi
-        nvm install --no-progress "${NODE_MAJOR}"
-    fi
-    if (( ! CHECK_ONLY )); then
+
+        nvm install --no-progress ${NODE_MAJOR}
+        node -v
+        nvm current
         corepack enable pnpm
-        pnpm -v >/dev/null
+        pnpm -v
+        rm -rf ${DOTFILES_DIR}/node-compiled-cache/
     fi
 }
 
 install_go() {
     local file="go${GO_VERSION}.linux-amd64.tar.gz"
-    if [ -x /usr/local/go/bin/go ]; then
+
+    if has_cmd go; then
         installed "go ${GO_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "go ${GO_VERSION}"
         return 0
     fi
+
     log "Installing go ${GO_VERSION}..."
     curl -fsSL -o "${DOTFILES_DIR}/${file}" "https://go.dev/dl/${file}"
     rm -rf "${DOTFILES_DIR}/go"
@@ -126,17 +134,19 @@ install_go() {
 
 install_ripgrep() {
     local file="ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl"
+
     if has_cmd rg; then
         installed "ripgrep ${RG_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "ripgrep ${RG_VERSION}"
         return 0
     fi
+
     log "Installing ripgrep ${RG_VERSION}..."
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/BurntSushi/ripgrep/releases/download/${RG_VERSION}/${file}.tar.gz"
-    rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/${file}/rg" /usr/local/bin/rg
     sudo install -Dm644 "${DOTFILES_DIR}/${file}/doc/rg.1" /usr/local/man/man1/rg.1
@@ -145,17 +155,19 @@ install_ripgrep() {
 
 install_fd() {
     local file="fd-v${FD_VERSION}-x86_64-unknown-linux-musl"
+
     if has_cmd fd; then
         installed "fd ${FD_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "fd ${FD_VERSION}"
         return 0
     fi
+
     log "Installing fd ${FD_VERSION}..."
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/sharkdp/fd/releases/download/v${FD_VERSION}/${file}.tar.gz"
-    rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/${file}/fd" /usr/local/bin/fd
     sudo install -Dm644 "${DOTFILES_DIR}/${file}/fd.1" /usr/local/man/man1/fd.1
@@ -164,17 +176,19 @@ install_fd() {
 
 install_fzf() {
     local file="fzf-${FZF_VERSION}-linux_amd64"
+
     if has_cmd fzf; then
         installed "fzf ${FZF_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "fzf ${FZF_VERSION}"
         return 0
     fi
+
     log "Installing fzf ${FZF_VERSION}..."
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/junegunn/fzf/releases/download/v${FZF_VERSION}/${file}.tar.gz"
-    rm -f "${DOTFILES_DIR}/fzf"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/fzf" /usr/local/bin/fzf
     rm -rf "${DOTFILES_DIR:?}/${file}"*
@@ -182,18 +196,19 @@ install_fzf() {
 
 install_tmux() {
     local file="tmux-${TMUX_VERSION}"
+
     if has_cmd tmux; then
         installed "tmux ${TMUX_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "tmux ${TMUX_VERSION}"
         return 0
     fi
+
     log "Installing tmux ${TMUX_VERSION}..."
-    apt_install "${TMUX_BUILD_PACKAGES[@]}"
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${file}.tar.gz"
-    rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     ( cd "${DOTFILES_DIR}/${file}" && sh ./configure --quiet && make -s && sudo make -s install )
     rm -rf "${DOTFILES_DIR:?}/${file}"*
@@ -201,14 +216,17 @@ install_tmux() {
 
 install_lazygit() {
     local file="lazygit_${LAZYGIT_VERSION}_Linux_x86_64"
+
     if has_cmd lazygit; then
         installed "lazygit ${LAZYGIT_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "lazygit ${LAZYGIT_VERSION}"
         return 0
     fi
+
     log "Installing lazygit ${LAZYGIT_VERSION}..."
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/${file}.tar.gz"
     rm -f "${DOTFILES_DIR}/lazygit"
@@ -219,17 +237,19 @@ install_lazygit() {
 
 install_neovim() {
     local file='nvim-linux-x86_64'
+
     if has_cmd nvim; then
         installed "neovim ${NVIM_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "neovim ${NVIM_VERSION}"
         return 0
     fi
+
     log "Installing neovim ${NVIM_VERSION}..."
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/${file}.tar.gz"
-    rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo cp -rf "${DOTFILES_DIR}/${file}/bin/"* /usr/local/bin/
     sudo cp -rf "${DOTFILES_DIR}/${file}/lib/"* /usr/local/lib/
@@ -242,24 +262,30 @@ install_tree_sitter() {
         installed "tree-sitter-cli ${TREE_SITTER_VERSION}"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "tree-sitter-cli ${TREE_SITTER_VERSION}"
         return 0
     fi
+
     load_nvm
+
     npm i -g --loglevel=error "tree-sitter-cli@${TREE_SITTER_VERSION}"
 }
 
 install_firefox() {
     local pin_file='/etc/apt/preferences.d/mozilla-firefox'
+
     if dpkg-query -W -f='${Status}' firefox 2>/dev/null | grep -q "install ok installed" && [ -f "${pin_file}" ]; then
         installed "firefox"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "firefox"
         return 0
     fi
+
     log "Installing Firefox..."
     sudo add-apt-repository -y ppa:mozillateam/ppa
     sudo apt-get -qq update
@@ -289,7 +315,9 @@ install_docker() {
             rm -f /tmp/install-docker.sh
         fi
     fi
+
     apt_install uidmap
+
     if [ -f "${HOME}/.config/systemd/user/docker.service" ]; then
         installed "docker rootless"
     else
@@ -307,10 +335,12 @@ install_opencode() {
         installed "opencode"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "opencode"
         return 0
     fi
+
     log "Installing opencode..."
     curl -fsSL https://opencode.ai/install | bash
 }
@@ -321,6 +351,8 @@ else
     log "Updating package lists..."
     sudo apt-get -qq update
 fi
+
+mkdir -p /usr/local/bin/ /usr/local/man/man1/ /usr/local/lib/ /usr/local/share/
 
 install_base_packages
 install_node
