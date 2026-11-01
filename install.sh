@@ -25,7 +25,7 @@ BASE_PACKAGES=(
     xclip
     software-properties-common
     libevent-dev
-    ncurses-dev
+    libncurses-dev
     build-essential
     bison
     pkg-config
@@ -96,17 +96,17 @@ install_node() {
             return 0
         fi
 
-        if [ ! -s "${NVM_DIR}/nvm.sh" ]; then
+        if ! has_cmd nvm; then
             curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
             load_nvm
         fi
 
-        nvm install --no-progress ${NODE_MAJOR}
+        nvm install --no-progress "${NODE_MAJOR}"
         node -v
         nvm current
         corepack enable pnpm
         pnpm -v
-        rm -rf ${DOTFILES_DIR}/node-compiled-cache/
+        rm -rf "${DOTFILES_DIR}/node-compiled-cache/"
     fi
 }
 
