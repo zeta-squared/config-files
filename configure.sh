@@ -84,6 +84,9 @@ link_tree() {
 configure_dotfiles() {
     link_top_level
     link_tree "${HOME_TREE}/config" "${HOME}/.config"
+    if (( ! CHECK_ONLY )); then
+        rm -rf "${HOME}/.local/share/konsole"
+    fi
     link_tree "${HOME_TREE}/local" "${HOME}/.local/share"
 }
 
