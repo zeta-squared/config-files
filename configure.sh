@@ -41,10 +41,12 @@ link_top_level() {
         if [ ! -e "${src}" ]; then
             src="${DOTFILES_DIR}/${name}"
         fi
+
         if [ ! -e "${src}" ]; then
             log "Skipping ${name}: source not found"
             continue
         fi
+
         dest="${HOME}/${name}"
         if is_linked "${src}" "${dest}"; then
             installed "${name}"
@@ -62,9 +64,11 @@ link_tree() {
     if [ ! -d "${srcdir}" ]; then
         return 0
     fi
+
     if (( ! CHECK_ONLY )); then
         mkdir -p "${destdir}"
     fi
+
     for src in "${srcdir}"/*; do
         dest="${destdir}/$(basename "${src}")"
         if is_linked "${src}" "${dest}"; then
@@ -80,9 +84,6 @@ link_tree() {
 configure_dotfiles() {
     link_top_level
     link_tree "${HOME_TREE}/config" "${HOME}/.config"
-    if (( ! CHECK_ONLY )); then
-        rm -rf "${HOME}/.local/share/konsole"
-    fi
     link_tree "${HOME_TREE}/local" "${HOME}/.local/share"
 }
 
@@ -107,13 +108,16 @@ configure_neovim() {
     fi
 
     if (( ! CHECK_ONLY )); then
-        "${venv}/bin/pip" install --quiet pynvim
+        source ${venv}/bin/activate
+        pip install --quiet pynvim
+        deactivate
     fi
 
     if ! has_cmd nvim; then
         log "nvim not found; skipping plugin installation"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         log "Plugins: run nvim --headless '+PlugInstall --sync' +qa"
     else
@@ -127,10 +131,12 @@ configure_fonts() {
         installed "fonts (SauceCodePro)"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "fonts (SauceCodePro)"
         return 0
     fi
+
     log "Installing fonts..."
     mkdir -p "${fontdir}"
     curl -fsSL -o "${HOME}/.local/share/fonts/SourceCodePro.tar.xz" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/SourceCodePro.tar.xz
@@ -161,12 +167,13 @@ configure_themes() {
         installed "themes (Layan, Tela)"
         return 0
     fi
+
     if (( CHECK_ONLY )); then
         missing "themes (Layan, Tela)"
         return 0
     fi
+
     log "Installing system and sddm themes..."
-    rm -rf "${HOME}/Layan-kde" "${HOME}/Tela-icons"
     git clone -q --depth 1 https://github.com/vinceliuice/Layan-kde "${HOME}/Layan-kde"
     bash "${HOME}/Layan-kde/install.sh"
     sudo bash "${HOME}/Layan-kde/sddm/5.0/install.sh"
