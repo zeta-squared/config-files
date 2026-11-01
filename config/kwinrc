@@ -13,7 +13,14 @@ Name_4=Discord
 Number=4
 Rows=1
 
+[Effect-overview]
+BorderActivate=9
+
 [Tiling][045c6f45-bd5b-4fb9-840f-1cc1c946f219][274135af-03ef-4601-8d0e-a114ddd97997]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][045c6f45-bd5b-4fb9-840f-1cc1c946f219][38567b57-c0bd-455c-b1fc-2c203fee5538]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
@@ -21,7 +28,15 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
+[Tiling][2daae9fc-cb4e-415f-9541-67cdd5485019][38567b57-c0bd-455c-b1fc-2c203fee5538]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
 [Tiling][49c249ac-7da4-4f8f-9eb1-a6bd3edca424][274135af-03ef-4601-8d0e-a114ddd97997]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][49c249ac-7da4-4f8f-9eb1-a6bd3edca424][38567b57-c0bd-455c-b1fc-2c203fee5538]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
@@ -32,6 +47,10 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][bba07692-4c51-459e-8235-00a0855de4c2][274135af-03ef-4601-8d0e-a114ddd97997]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][bba07692-4c51-459e-8235-00a0855de4c2][38567b57-c0bd-455c-b1fc-2c203fee5538]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
