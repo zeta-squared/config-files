@@ -150,7 +150,7 @@ install_ripgrep() {
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/${file}/rg" /usr/local/bin/rg
     sudo install -Dm644 "${DOTFILES_DIR}/${file}/doc/rg.1" /usr/local/man/man1/rg.1
-    rm -rf "${DOTFILES_DIR:?}/${file}"*
+    rm -rf "${DOTFILES_DIR}/${file}"*
 }
 
 install_fd() {
@@ -171,7 +171,7 @@ install_fd() {
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/${file}/fd" /usr/local/bin/fd
     sudo install -Dm644 "${DOTFILES_DIR}/${file}/fd.1" /usr/local/man/man1/fd.1
-    rm -rf "${DOTFILES_DIR:?}/${file}"*
+    rm -rf "${DOTFILES_DIR}/${file}"*
 }
 
 install_fzf() {
@@ -191,7 +191,7 @@ install_fzf() {
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/junegunn/fzf/releases/download/v${FZF_VERSION}/${file}.tar.gz"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/fzf" /usr/local/bin/fzf
-    rm -rf "${DOTFILES_DIR:?}/${file}"*
+    rm -rf "${DOTFILES_DIR}/${file}"*
 }
 
 install_tmux() {
@@ -211,7 +211,7 @@ install_tmux() {
     curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${file}.tar.gz"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     ( cd "${DOTFILES_DIR}/${file}" && sh ./configure --quiet && make -s && sudo make -s install )
-    rm -rf "${DOTFILES_DIR:?}/${file}"*
+    rm -rf "${DOTFILES_DIR}/${file}"*
 }
 
 install_lazygit() {
@@ -232,7 +232,7 @@ install_lazygit() {
     rm -f "${DOTFILES_DIR}/lazygit"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" --exclude=LICENSE --exclude=README.md -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/lazygit" /usr/local/bin/lazygit
-    rm -rf "${DOTFILES_DIR:?}/${file}"*
+    rm -rf "${DOTFILES_DIR}/${file}"*
 }
 
 install_neovim() {
@@ -254,7 +254,7 @@ install_neovim() {
     sudo cp -rf "${DOTFILES_DIR}/${file}/bin/"* /usr/local/bin/
     sudo cp -rf "${DOTFILES_DIR}/${file}/lib/"* /usr/local/lib/
     sudo cp -rf "${DOTFILES_DIR}/${file}/share/"* /usr/local/share/
-    rm -rf "${DOTFILES_DIR:?}/${file}"*
+    rm -rf "${DOTFILES_DIR}/${file}"*
 }
 
 install_tree_sitter() {
