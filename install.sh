@@ -77,7 +77,7 @@ apt_install() {
         missing "${missing_pkgs[*]}"
         return 0
     fi
-    sudo apt-get install -y "${missing_pkgs[@]}"
+    sudo apt-get -qq install -y "${missing_pkgs[@]}"
 }
 
 install_base_packages() {
@@ -94,10 +94,10 @@ install_node() {
             return 0
         fi
         if [ ! -s "${NVM_DIR}/nvm.sh" ]; then
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+            curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
             load_nvm
         fi
-        nvm install "${NODE_MAJOR}"
+        nvm install --no-progress "${NODE_MAJOR}"
     fi
     if (( ! CHECK_ONLY )); then
         corepack enable pnpm
@@ -116,7 +116,7 @@ install_go() {
         return 0
     fi
     log "Installing go ${GO_VERSION}..."
-    curl -fL -o "${DOTFILES_DIR}/${file}" "https://go.dev/dl/${file}"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}" "https://go.dev/dl/${file}"
     rm -rf "${DOTFILES_DIR}/go"
     tar xzf "${DOTFILES_DIR}/${file}" -C "${DOTFILES_DIR}"
     sudo rm -rf /usr/local/go
@@ -135,7 +135,7 @@ install_ripgrep() {
         return 0
     fi
     log "Installing ripgrep ${RG_VERSION}..."
-    curl -fL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/BurntSushi/ripgrep/releases/download/${RG_VERSION}/${file}.tar.gz"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/BurntSushi/ripgrep/releases/download/${RG_VERSION}/${file}.tar.gz"
     rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/${file}/rg" /usr/local/bin/rg
@@ -154,7 +154,7 @@ install_fd() {
         return 0
     fi
     log "Installing fd ${FD_VERSION}..."
-    curl -fL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/sharkdp/fd/releases/download/v${FD_VERSION}/${file}.tar.gz"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/sharkdp/fd/releases/download/v${FD_VERSION}/${file}.tar.gz"
     rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/${file}/fd" /usr/local/bin/fd
@@ -173,7 +173,7 @@ install_fzf() {
         return 0
     fi
     log "Installing fzf ${FZF_VERSION}..."
-    curl -fL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/junegunn/fzf/releases/download/v${FZF_VERSION}/${file}.tar.gz"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/junegunn/fzf/releases/download/v${FZF_VERSION}/${file}.tar.gz"
     rm -f "${DOTFILES_DIR}/fzf"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/fzf" /usr/local/bin/fzf
@@ -192,10 +192,10 @@ install_tmux() {
     fi
     log "Installing tmux ${TMUX_VERSION}..."
     apt_install "${TMUX_BUILD_PACKAGES[@]}"
-    curl -fL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${file}.tar.gz"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/tmux/tmux/releases/download/${TMUX_VERSION}/${file}.tar.gz"
     rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
-    ( cd "${DOTFILES_DIR}/${file}" && sh ./configure && make && sudo make install )
+    ( cd "${DOTFILES_DIR}/${file}" && sh ./configure --quiet && make -s && sudo make -s install )
     rm -rf "${DOTFILES_DIR:?}/${file}"*
 }
 
@@ -210,7 +210,7 @@ install_lazygit() {
         return 0
     fi
     log "Installing lazygit ${LAZYGIT_VERSION}..."
-    curl -fL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/${file}.tar.gz"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/${file}.tar.gz"
     rm -f "${DOTFILES_DIR}/lazygit"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" --exclude=LICENSE --exclude=README.md -C "${DOTFILES_DIR}"
     sudo install -Dm755 "${DOTFILES_DIR}/lazygit" /usr/local/bin/lazygit
@@ -228,7 +228,7 @@ install_neovim() {
         return 0
     fi
     log "Installing neovim ${NVIM_VERSION}..."
-    curl -fL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/${file}.tar.gz"
+    curl -fsSL -o "${DOTFILES_DIR}/${file}.tar.gz" "https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/${file}.tar.gz"
     rm -rf "${DOTFILES_DIR:?}/${file}"
     tar xzf "${DOTFILES_DIR}/${file}.tar.gz" -C "${DOTFILES_DIR}"
     sudo cp -rf "${DOTFILES_DIR}/${file}/bin/"* /usr/local/bin/
@@ -247,7 +247,7 @@ install_tree_sitter() {
         return 0
     fi
     load_nvm
-    npm i -g "tree-sitter-cli@${TREE_SITTER_VERSION}"
+    npm i -g --loglevel=error "tree-sitter-cli@${TREE_SITTER_VERSION}"
 }
 
 install_firefox() {
@@ -262,7 +262,7 @@ install_firefox() {
     fi
     log "Installing Firefox..."
     sudo add-apt-repository -y ppa:mozillateam/ppa
-    sudo apt-get update
+    sudo apt-get -qq update
     sudo tee "${pin_file}" >/dev/null <<'EOF'
 Package: *
 Pin: release o=LP-PPA-mozillateam
@@ -319,7 +319,7 @@ if (( CHECK_ONLY )); then
     log "Checking software (no changes will be made)..."
 else
     log "Updating package lists..."
-    sudo apt-get update
+    sudo apt-get -qq update
 fi
 
 install_base_packages
