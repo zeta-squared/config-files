@@ -352,7 +352,7 @@ else
     sudo apt-get -qq update
 fi
 
-mkdir -p /usr/local/bin/ /usr/local/man/man1/ /usr/local/lib/ /usr/local/share/
+sudo mkdir -p /usr/local/bin/ /usr/local/man/man1/ /usr/local/lib/ /usr/local/share/
 
 install_base_packages
 install_node
