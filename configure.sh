@@ -95,7 +95,7 @@ configure_neovim() {
     elif (( CHECK_ONLY )); then
         missing "vim-plug"
     else
-        curl -fLo "${plug_vim}" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        curl -fsSLo "${plug_vim}" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     fi
 
     if [ -x "${venv}/bin/python" ]; then
@@ -133,7 +133,7 @@ configure_fonts() {
     fi
     log "Installing fonts..."
     mkdir -p "${fontdir}"
-    curl -fL -o "${HOME}/.local/share/fonts/SourceCodePro.tar.xz" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/SourceCodePro.tar.xz
+    curl -fsSL -o "${HOME}/.local/share/fonts/SourceCodePro.tar.xz" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.0/SourceCodePro.tar.xz
     tar xf "${HOME}/.local/share/fonts/SourceCodePro.tar.xz" --exclude=LICENSE.txt --exclude=README.md -C "${fontdir}/"
     rm -f "${HOME}/.local/share/fonts/SourceCodePro.tar.xz"
 }
@@ -167,10 +167,10 @@ configure_themes() {
     fi
     log "Installing system and sddm themes..."
     rm -rf "${HOME}/Layan-kde" "${HOME}/Tela-icons"
-    git clone --depth 1 https://github.com/vinceliuice/Layan-kde "${HOME}/Layan-kde"
+    git clone -q --depth 1 https://github.com/vinceliuice/Layan-kde "${HOME}/Layan-kde"
     bash "${HOME}/Layan-kde/install.sh"
     sudo bash "${HOME}/Layan-kde/sddm/5.0/install.sh"
-    git clone --depth 1 https://github.com/vinceliuice/Tela-icon-theme "${HOME}/Tela-icons"
+    git clone -q --depth 1 https://github.com/vinceliuice/Tela-icon-theme "${HOME}/Tela-icons"
     bash "${HOME}/Tela-icons/install.sh" purple
     rm -rf "${HOME}/Layan-kde" "${HOME}/Tela-icons"
 }
