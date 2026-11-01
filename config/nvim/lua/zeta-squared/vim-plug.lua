@@ -40,7 +40,7 @@ Plug('leoluz/nvim-dap-go')
 Plug('mfussenegger/nvim-dap-python')
 
 -- AI/LLM
-Plug('olimorris/codecompanion.nvim')
+Plug('olimorris/codecompanion.nvim', { ['tag'] = 'v19.27.0' })
 Plug('nvim-lua/plenary.nvim') -- CodeCompanion dependency
 Plug('MeanderingProgrammer/render-markdown.nvim') -- CodeCompanion dependency
 vim.call('plug#end')
