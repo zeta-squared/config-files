@@ -13,13 +13,26 @@ Name_4=Discord
 Number=4
 Rows=1
 
-[Tiling]
+[Tiling][045c6f45-bd5b-4fb9-840f-1cc1c946f219][274135af-03ef-4601-8d0e-a114ddd97997]
 padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][2daae9fc-cb4e-415f-9541-67cdd5485019][274135af-03ef-4601-8d0e-a114ddd97997]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][49c249ac-7da4-4f8f-9eb1-a6bd3edca424][274135af-03ef-4601-8d0e-a114ddd97997]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][58ca410b-ce44-58d6-82b9-fefe44aba0e3]
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][5f8d87c7-da8f-58fb-a30d-009aae57408b]
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][bba07692-4c51-459e-8235-00a0855de4c2][274135af-03ef-4601-8d0e-a114ddd97997]
+padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][c897c4f6-72b3-5b9a-8a41-b221a90df985]
@@ -28,5 +41,9 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 [Windows]
 Placement=Smart
 
+[Xwayland]
+Scale=1
+
 [org.kde.kdecoration2]
+library=org.kde.kwin.aurorae.v2
 theme=__aurorae__svg__Layan-solid

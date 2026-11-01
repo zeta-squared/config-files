@@ -1,8 +1,3 @@
-[KFileDialog Settings]
-Recent Files[$e]=without_logo.jpg,file:$HOME/.local/share/wallpapers/without_logo.jpg,file:$HOME/.config/old-autostart-scripts/git.sh
-Recent URLs[$e]=file:$HOME/.local/share/wallpapers/,file:$HOME/.config/old-autostart-scripts/,file:$HOME/.local/share/,file:$HOME/,file:$HOME/Documents/
-detailViewIconSize=16
-
 [KPropertiesDialog]
 2560x1440 screen: Height=455
 2560x1440 screen: Width=421
