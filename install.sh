@@ -298,6 +298,11 @@ Package: firefox
 Pin: version 1:1snap*
 Pin-Priority: -1
 EOF
+    sudo tee /etc/apt/preferences.d/nosnap.pref >/dev/null <<'EOF'
+Package: snapd
+Pin: release a=*
+Pin-Priority: -10
+EOF
     apt_install firefox
     echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox >/dev/null
 }
